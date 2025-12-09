@@ -55,6 +55,20 @@ python -m scanner.cli ./src --no-color
 
 Output includes severity, CWE (if available), file and line number, and a brief message.
 
+```bash
+Security Analysis Results
+==================================================
+Total Issues: 12 (HIGH: 11 MED: 1 )
+
+[1/12] HIGH .\test_c\basic_overflow.c:7 (CWE-120)
+  strcpy used. Potential buffer overflow; use strncpy()/strlcpy().
+  >     strcpy(buffer, name);
+
+[2/12] HIGH .\test_c\basic_overflow.c:8 (CWE-120)
+  strcat used. Potential buffer overflow; use strncat()/strlcat().
+  >     strcat(buffer, suffix);
+```
+
 ## Programmatic API
 
 Import high-level functions from the package:
