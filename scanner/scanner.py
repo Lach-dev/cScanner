@@ -153,7 +153,9 @@ def check_printf_format(filename: str, lines: List[str]) -> List[Warning]:
     return warnings
 
 def check_large_stack_buffers(filename: str, lines: List[str], threshold: int = 1024) -> List[Warning]:
-    """Flag large stack allocated buffers that could cause stack overflow."""
+    """
+    Flag large stack allocated buffers that could cause stack overflow.
+    """
     warnings: List[Warning] = []
     for i, line in enumerate(lines, start=1):
         m = CHAR_ARRAY_DECL_RE.search(line)
@@ -174,7 +176,9 @@ def check_large_stack_buffers(filename: str, lines: List[str], threshold: int = 
 
 
 def check_alloca_usage(filename: str, lines: List[str]) -> List[Warning]:
-    """Flag alloca() usage which can cause stack overflow."""
+    """
+    Flag alloca() usage which can cause stack overflow.
+    """
     warnings: List[Warning] = []
     alloca_re = re.compile(r"\balloca\s*\(")
     for i, line in enumerate(lines, start=1):
